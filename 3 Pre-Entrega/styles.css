@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.producto {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+    display: inline-block;
+}
+.producto.seleccionado {
+    background-color: #f0f8ff;
+}
+.producto.comprado {
+    background-color: #dcdcdc;
+}
+#carrito {
+    margin-top: 20px;
+}
+#total {
+    margin-top: 20px;
+    font-weight: bold;
+}
