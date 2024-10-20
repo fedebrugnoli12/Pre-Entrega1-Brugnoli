@@ -1,0 +1,11 @@
+[
+    { "titulo": "Mate Imperial", "precio": 1500, "imagenSrc": "./Mate 1.jpeg" },
+    { "titulo": "Mate Camionero", "precio": 1250, "imagenSrc": "./Mate 2.jpg" },
+    { "titulo": "Mate de Ceramica", "precio": 790, "imagenSrc": "./Mate 3.jpeg" },
+    { "titulo": "Combo 1 / Mate Imperial + Bombilla", "precio": 1800, "imagenSrc": "Combo mate + bombilla.jpeg" },
+    { "titulo": "Combo 2 / Mate, Bombilla y Termo", "precio": 2800, "imagenSrc": "Combo 2.jpg" },
+    { "titulo": "Combo 3 / Mate, Bombilla, Termo y Matera", "precio": 3750, "imagenSrc": "Combo 3.jpg" },
+    { "titulo": "Termo Cebador", "precio": 800, "imagenSrc": "Termo Cebador.jpeg" },
+    { "titulo": "Bombilla Alpaca", "precio": 700, "imagenSrc": "bombilla-alpaca-lisa.jpg" },
+    { "titulo": "Yerbera", "precio": 600, "imagenSrc": "Yerbera.jpg" }
+]
