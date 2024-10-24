@@ -64,11 +64,8 @@ function mostrarProductos(productos) {
         contenedorProductos.innerHTML += itemHTML;
     });
 
-   
     agregarEventosACarrito();
 }
-
-
 
 // Función al agregar un artículo al carrito
 function agregarAlCarritoClicked(event) {
@@ -182,6 +179,7 @@ function ocultarCarrito() {
 // Función al hacer clic en "Pagar"
 function pagarClicked() {
     alert("Gracias por tu compra");
+    guardarProductosComprados(); // Guardar productos en localStorage
     const carritoItems = document.getElementsByClassName('carrito-items')[0];
     while (carritoItems.hasChildNodes()) {
         carritoItems.removeChild(carritoItems.firstChild);
@@ -210,11 +208,37 @@ function actualizarTotalCarrito() {
     document.getElementsByClassName('carrito-precio-total')[0].innerText = '$' + total.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
+// Función para guardar productos comprados en localStorage
+function guardarProductosComprados() {
+    const carritoItems = document.getElementsByClassName('carrito-items')[0];
+    const productosComprados = [];
 
-/* LIBRERIA TOASTIFY JS */
+    // Recorro los ítems del carrito para obtener los productos
+    Array.from(carritoItems.getElementsByClassName('carrito-item')).forEach(item => {
+        const titulo = item.getElementsByClassName('carrito-item-titulo')[0].innerText;
+        const precio = item.getElementsByClassName('carrito-item-precio')[0].innerText;
+        const cantidad = item.getElementsByClassName('carrito-item-cantidad')[0].value;
+        const imagenSrc = item.getElementsByTagName('img')[0].src;
+
+        // Guardo los detalles del producto en un objeto
+        productosComprados.push({
+            titulo: titulo,
+            precio: precio,
+            cantidad: cantidad,
+            imagenSrc: imagenSrc
+        });
+    });
+
+    // Guardo el array de productos en localStorage
+    localStorage.setItem("productos_comprados", JSON.stringify(productosComprados));
+}
+
+
+/* LIBRERIA TOASTIFY*/
+console.log('Mostrando Toast');
 Toastify({
     text: "Bienvenido a la tienda de Mates Uruguayos",
-    duration: 5000,
+    duration: 10000,
     destination: "https://github.com/apvarun/toastify-js",
     newWindow: true,
     close: true,
@@ -222,7 +246,7 @@ Toastify({
     position: "right", // left, center or right
     stopOnFocus: true, // Prevents dismissing of toast on hover
     style: {
-      background: "linear-gradient(to right, white, blue)",
+      background: "linear-gradient(to right, black, blue)",
     },
     onClick: function(){} // Callback after click
   }).showToast();
